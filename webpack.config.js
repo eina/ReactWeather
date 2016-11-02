@@ -1,6 +1,28 @@
+var webpack = require('webpack');
 var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
 module.exports = {
-  entry: './app/app.jsx',
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/foundation.min.js',
+    './app/app.jsx'
+  ],
+  externals: {
+    jquery: 'jQuery'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    }),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      server: {
+        baseDir: ['public']
+      }
+    })
+  ],
   output: {
     path: __dirname, //path to current folder
     filename: './public/bundle.js'
@@ -29,14 +51,5 @@ module.exports = {
       exclude: /(node_modules|bower_components)/
     }]
   },
-  plugins: [
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3000,
-      server: {
-        baseDir: ['public']
-      }
-    })
-  ],
   devtool: 'eval-source-map'
 };
