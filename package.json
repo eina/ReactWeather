@@ -31,5 +31,8 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "webpack": "^1.13.2"
+  },
+  "engines" : {
+    "node": "6.9.1"
   }
 }
