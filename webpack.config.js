@@ -11,16 +11,16 @@ module.exports = {
     jquery: 'jQuery'
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      '$': 'jquery',
-      'jQuery': 'jquery'
-    }),
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
       server: {
         baseDir: ['public']
       }
+    }),
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
     })
   ],
   output: {
