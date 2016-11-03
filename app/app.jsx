@@ -8,6 +8,11 @@ var Examples = require('Examples');
 
 //Load Foundation's CSS with CSS Loader and load it to our HTML
 require('style!css!foundation-sites/dist/foundation.min.css');
+
+//Load our own styles
+require('style!css!applicationStyles');
+
+//call foundation's js
 $(document).foundation();
 
 ReactDOM.render(
