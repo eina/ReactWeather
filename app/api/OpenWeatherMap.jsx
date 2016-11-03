@@ -9,15 +9,15 @@ module.exports = {
 
     //axios uses Promises
     return axios.get(reqestURL).then(function(res){
-      //successfa``
+      //success
       if(res.data.cod && res.data.message){
         throw new Error(res.data.message);
       }else {
         return res.data.main.temp;
       }
-    }, function(res){
+    }, function(err){
       //error
-      throw new Error(res.data.message); //this is the message OpenWeatherMap will give us
+      throw new Error(err.response.data.message); //this is the message OpenWeatherMap will give us
     });
   }
 };
